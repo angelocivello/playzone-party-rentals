@@ -22,6 +22,7 @@
 
     .container{max-width:1100px;margin:0 auto;padding:18px}
 
+    /* HEADER / LOGO */
     header.site-header{
       background:radial-gradient(circle at 0 0,#ff2b70 0,#0b63d8 38%,#071033 100%);
       color:#fff;
@@ -38,21 +39,8 @@
       box-shadow:0 12px 30px rgba(0,0,0,0.55);
       padding:7px 14px;
       display:flex;flex-direction:column;justify-content:center;
-      position:relative;
       border:2px solid #ff2b70;
     }
-    .logo-arcade::before,
-    .logo-arcade::after{
-      content:"";
-      position:absolute;
-      height:3px;
-      left:10px;right:10px;
-      border-radius:999px;
-      background:linear-gradient(90deg,#ff2b70,#ffd94a,#43ffd2);
-      opacity:.85;
-    }
-    .logo-arcade::before{top:6px}
-    .logo-arcade::after{bottom:6px}
     .logo-top{
       font-size:1rem;
       text-transform:uppercase;
@@ -91,6 +79,7 @@
       font-weight:800;
     }
 
+    /* HERO */
     .hero{display:grid;grid-template-columns:1fr;gap:16px;align-items:center;padding:22px 0}
     .hero h2{margin:0;font-size:1.8rem;color:var(--blue-dark)}
     .lead{margin-top:8px;color:var(--muted)}
@@ -117,6 +106,7 @@
 
     .section-title{margin:0 0 6px;font-size:1.25rem}
 
+    /* PACKAGES */
     .packages{display:grid;grid-template-columns:1fr;gap:10px}
     @media(min-width:800px){
       .hero{grid-template-columns:1.1fr .9fr}
@@ -126,14 +116,51 @@
     .pkg-price{font-weight:900;font-size:1.2rem;margin-top:4px}
     .pkg-note{font-size:.9rem;color:var(--muted);margin-top:4px}
 
-    .games-list{
+    /* GAMES LIST (nice clean grid with badges) */
+    .games-columns{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-      gap:6px 16px;
-      font-size:.92rem;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:10px 40px;
     }
-    .games-list strong{display:block}
+    .games-group-title{
+      font-size:1.25rem;
+      font-weight:800;
+      margin-top:8px;
+      margin-bottom:6px;
+    }
+    .game-row{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:6px;
+      font-size:.98rem;
+    }
+    .game-badge{
+      width:32px;height:32px;
+      border-radius:50%;
+      display:inline-flex;
+      align-items:center;justify-content:center;
+      font-size:.8rem;
+      font-weight:800;
+      color:#fff;
+      background:var(--blue);
+      flex-shrink:0;
+    }
+    .game-badge.premium{
+      background:#2ecc71;
+      color:#02131f;
+    }
+    .game-name{
+      font-weight:700;
+      color:var(--blue-dark);
+    }
+    .game-note{
+      font-size:.86rem;
+      color:var(--muted);
+      margin-top:2px;
+    }
 
+    /* ADD-ONS (static list) */
     .addons-grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
@@ -141,6 +168,7 @@
       font-size:.92rem;
     }
 
+    /* BOOKING / FORM */
     .booking-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}
     @media(max-width:900px){
       .booking-layout{grid-template-columns:1fr}
@@ -162,13 +190,20 @@
     .row{display:flex;gap:10px;flex-wrap:wrap}
     .row .field{flex:1;min-width:160px}
 
-    .addons-choices label{
-      display:flex;align-items:center;gap:8px;
+    /* Choices in form (games + add-ons) */
+    .choices-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+      gap:6px 10px;
+    }
+    .choices-grid label{
+      display:flex;
+      align-items:center;
+      gap:8px;
       padding:6px 8px;
       border-radius:9px;
       border:1px solid rgba(7,16,51,0.06);
       background:#fff;
-      margin-bottom:6px;
       font-size:.9rem;
     }
 
@@ -219,11 +254,11 @@
 <header class="site-header">
   <div class="container header-inner">
     <div class="brand-wrap">
-      <!-- Retro arcade logo -->
+      <!-- Clean retro arcade logo (no lines through text) -->
       <div class="logo-arcade" aria-label="Playzone Party Rentals logo">
-        <div class="logo-top">Playzone</div>
+        <div class="logo-top">PLAYZONE</div>
         <div class="logo-main">PARTY RENTALS</div>
-        <div class="logo-sub">Affordable Fun for Everyone</div>
+        <div class="logo-sub">AFFORDABLE FUN FOR EVERYONE</div>
       </div>
       <div class="brand-text">
         <h1>Playzone Party Rentals</h1>
@@ -305,36 +340,85 @@
     </p>
   </section>
 
-  <!-- GAMES -->
+  <!-- GAMES (clean grid with badges) -->
   <section id="games" class="card">
     <h2 class="section-title">Games</h2>
     <p class="muted">
       Choose any games you want with your package. We’ll bring everything needed to play. Adults must supervise children at all times.
     </p>
 
-    <h3 style="margin-bottom:4px;">Basic games</h3>
-    <div class="games-list">
-      <div><strong>Cornhole</strong><span class="muted"> • Classic beanbag toss</span></div>
-      <div><strong>Kan Jam</strong><span class="muted"> • Frisbee disc toss</span></div>
-      <div><strong>Ring Toss</strong></div>
-      <div><strong>Horseshoes</strong></div>
-      <div><strong>Ladder Toss</strong></div>
-      <div><strong>Giant Jenga</strong></div>
-      <div><strong>Beer Pong</strong><span class="muted"> • Cups and balls only</span></div>
-      <div><strong>Spikeball</strong></div>
-      <div><strong>Soccer</strong><span class="muted"> • Small goals & ball</span></div>
-    </div>
-
-    <h3 style="margin-top:10px;margin-bottom:4px;">Premium games</h3>
-    <div class="games-list">
-      <div><strong>Badminton (BM)</strong><span class="muted"> • Net, rackets, birdies</span></div>
-      <div><strong>Kid-friendly Axe Throwing (AT)</strong><span class="muted"> • Foam / safe axes</span></div>
-      <div><strong>Volleyball (VB)</strong><span class="muted"> • Net & volleyball</span></div>
+    <div class="games-columns">
       <div>
-        <strong>Nerf Guns Kit (NG)</strong>
-        <span class="muted">
-          • Includes <strong>10 guns</strong>, <strong>300 foam darts</strong>, and <strong>eye protection</strong> (required to be worn).
-        </span>
+        <div class="games-group-title">Basic games</div>
+
+        <div class="game-row">
+          <div class="game-badge">C</div>
+          <div class="game-name">Cornhole</div>
+        </div>
+        <div class="game-row">
+          <div class="game-badge">KJ</div>
+          <div class="game-name">Kan Jam</div>
+        </div>
+        <div class="game-row">
+          <div class="game-badge">RT</div>
+          <div class="game-name">Ring Toss</div>
+        </div>
+        <div class="game-row">
+          <div class="game-badge">H</div>
+          <div class="game-name">Horseshoes</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="games-group-title" style="visibility:hidden">.</div> <!-- just to align columns -->
+        <div class="game-row">
+          <div class="game-badge">LT</div>
+          <div class="game-name">Ladder Toss</div>
+        </div>
+        <div class="game-row">
+          <div class="game-badge">GJ</div>
+          <div class="game-name">Giant Jenga</div>
+        </div>
+        <div class="game-row">
+          <div class="game-badge">BP</div>
+          <div class="game-name">Beer Pong</div>
+        </div>
+        <div class="game-row">
+          <div class="game-badge">S</div>
+          <div class="game-name">Spikeball</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="games-group-title" style="visibility:hidden">.</div>
+        <div class="game-row">
+          <div class="game-badge">SO</div>
+          <div class="game-name">Soccer</div>
+        </div>
+
+        <div class="games-group-title" style="margin-top:18px">Premium games</div>
+
+        <div class="game-row">
+          <div class="game-badge premium">BM</div>
+          <div class="game-name">Badminton</div>
+        </div>
+        <div class="game-row">
+          <div class="game-badge premium">AT</div>
+          <div class="game-name">Kid-friendly Axe Throwing</div>
+        </div>
+        <div class="game-row">
+          <div class="game-badge premium">VB</div>
+          <div class="game-name">Volleyball</div>
+        </div>
+        <div class="game-row">
+          <div class="game-badge premium">NG</div>
+          <div>
+            <div class="game-name">Nerf Guns Kit</div>
+            <div class="game-note">
+              Includes <strong>10 guns</strong>, <strong>300 foam darts</strong>, and <strong>eye protection</strong> (required to be worn).
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -361,7 +445,7 @@
   <section id="booking" class="card">
     <h2 class="section-title">Book / Request a Quote</h2>
     <p class="muted">
-      Fill this out and we’ll confirm availability and finalize your booking. You’ll also get a button to add the event to your Google Calendar.
+      Fill this out and we’ll confirm availability and finalize your booking.
     </p>
 
     <div class="booking-layout">
@@ -418,14 +502,14 @@
 
         <div class="field">
           <label>Games you’d like</label>
-          <div class="addons-choices" id="gamesChoices">
+          <div class="choices-grid" id="gamesChoices">
             <!-- populated by JS -->
           </div>
         </div>
 
         <div class="field">
           <label>Add-ons</label>
-          <div class="addons-choices" id="addonsChoices">
+          <div class="choices-grid" id="addonsChoices">
             <!-- populated by JS -->
           </div>
         </div>
@@ -466,15 +550,12 @@
         </div>
       </form>
 
-      <!-- CONFIRMATION (simple, clean) -->
+      <!-- CONFIRMATION (simple, no calendar button) -->
       <div id="confirmation-box" class="card">
         <h3 style="margin-top:0">Thank you! 🎉</h3>
         <p class="muted" id="confirmText">
           We’ve received your booking request. We’ll review your details and reach out to confirm availability and finalize your rental.
         </p>
-        <button id="calendarBtn" class="btn btn-primary" type="button">
-          Add to Google Calendar
-        </button>
         <p class="muted" style="margin-top:10px">
           If you have any questions, you can email us at
           <a href="mailto:playzonepartyrentals@outlook.com" class="link-blue">playzonepartyrentals@outlook.com</a>
@@ -506,34 +587,34 @@
 
   const FORM_ACTION = "https://formspree.io/f/xjknyabk";
 
-  // Game + addon data
+  // Game + addon data for form choices
   const GAMES = [
-    {id:'cornhole', label:'Cornhole', type:'basic'},
-    {id:'kanjam', label:'Kan Jam', type:'basic'},
-    {id:'ringtoss', label:'Ring Toss', type:'basic'},
-    {id:'horseshoes', label:'Horseshoes', type:'basic'},
-    {id:'laddertoss', label:'Ladder Toss', type:'basic'},
-    {id:'giantjenga', label:'Giant Jenga', type:'basic'},
-    {id:'beerpong', label:'Beer Pong', type:'basic'},
-    {id:'spikeball', label:'Spikeball', type:'basic'},
-    {id:'soccer', label:'Soccer', type:'basic'},
-    {id:'badminton', label:'Badminton (BM)', type:'premium'},
-    {id:'axe', label:'Kid-friendly Axe Throwing (AT)', type:'premium'},
-    {id:'volleyball', label:'Volleyball (VB)', type:'premium'},
-    {id:'nerf', label:'Nerf Guns Kit (NG) — 10 guns + 300 darts + eye protection', type:'premium'},
+    {id:'cornhole', label:'Cornhole'},
+    {id:'kanjam', label:'Kan Jam'},
+    {id:'ringtoss', label:'Ring Toss'},
+    {id:'horseshoes', label:'Horseshoes'},
+    {id:'laddertoss', label:'Ladder Toss'},
+    {id:'giantjenga', label:'Giant Jenga'},
+    {id:'beerpong', label:'Beer Pong'},
+    {id:'spikeball', label:'Spikeball'},
+    {id:'soccer', label:'Soccer'},
+    {id:'badminton', label:'Badminton (BM)'},
+    {id:'axe', label:'Kid-friendly Axe Throwing (AT)'},
+    {id:'volleyball', label:'Volleyball (VB)'},
+    {id:'nerf', label:'Nerf Guns Kit (NG) — 10 guns + 300 darts + eye protection'},
   ];
 
   const ADDONS = [
-    {id:'speaker', label:'Bluetooth speaker + 2 microphones', price:20},
-    {id:'bubble', label:'Bubble machine (with solution)', price:20},
-    {id:'slip', label:'Slip and Slide', price:30},
-    {id:'waterballoons', label:'Water balloon kit', price:10},
-    {id:'projector', label:'Projector with outdoor screen', price:50},
-    {id:'footballs', label:'Footballs (set)', price:5},
-    {id:'frisbees', label:'Frisbees (set)', price:5},
-    {id:'waterguns', label:'Water guns kit', price:20},
-    {id:'extranerf', label:'Extra Nerf gun (each)', price:5},
-    {id:'darts', label:'100 foam darts (keep or return)', price:10},
+    {id:'speaker', label:'Bluetooth speaker + 2 microphones ($20)', price:20},
+    {id:'bubble', label:'Bubble machine (with solution) ($20)', price:20},
+    {id:'slip', label:'Slip and Slide ($30)', price:30},
+    {id:'waterballoons', label:'Water balloon kit ($10)', price:10},
+    {id:'projector', label:'Projector with outdoor screen ($50)', price:50},
+    {id:'footballs', label:'Footballs (set) ($5)', price:5},
+    {id:'frisbees', label:'Frisbees (set) ($5)', price:5},
+    {id:'waterguns', label:'Water guns kit ($20)', price:20},
+    {id:'extranerf', label:'Extra Nerf gun (each) ($5)', price:5},
+    {id:'darts', label:'100 foam darts (keep or return) ($10)', price:10},
   ];
 
   const PACKAGE_PRICES = {
@@ -558,9 +639,6 @@
 
   const bookingForm = document.getElementById('bookingForm');
   const confirmationBox = document.getElementById('confirmation-box');
-  const calendarBtn = document.getElementById('calendarBtn');
-
-  let lastCalendarUrl = "";
 
   function renderChoices(){
     gamesChoices.innerHTML = "";
@@ -587,7 +665,7 @@
       cb.addEventListener('change', updateSummary);
       lbl.appendChild(cb);
       const span = document.createElement('span');
-      span.textContent = `${a.label} ($${a.price})`;
+      span.textContent = a.label;
       lbl.appendChild(span);
       addonsChoices.appendChild(lbl);
     });
@@ -648,37 +726,6 @@
     window.scrollTo({top:0,behavior:'smooth'});
   }
 
-  function buildGoogleCalendarUrl(data){
-    // date as YYYYMMDD
-    if(!data.date) return "";
-    const ymd = data.date.replace(/-/g,"");
-    // We'll set as all-day event on that date
-    const dates = `${ymd}/${ymd}`;
-    const title = `Playzone Party Rental - ${data.name || ''}`.trim();
-    const detailsLines = [
-      `Name: ${data.name || ''}`,
-      `Email: ${data.email || ''}`,
-      `Phone: ${data.phone || ''}`,
-      `City: ${data.city || ''}`,
-      `Address: ${data.address || ''}`,
-      `Package: ${data.package || ''}`,
-      `Time: ${data.time || ''}`,
-      `Games: ${data.games || ''}`,
-      `Add-ons: ${data.addons || ''}`,
-      `Estimated total: $${data.total || ''}`
-    ];
-    const details = detailsLines.join('%0A');
-    const location = `${data.address || ''} ${data.city || ''}`.trim();
-
-    const url = `https://calendar.google.com/calendar/render?action=TEMPLATE` +
-      `&text=${encodeURIComponent(title)}` +
-      `&dates=${dates}` +
-      `&details=${details}` +
-      `&location=${encodeURIComponent(location)}`;
-
-    return url;
-  }
-
   bookingForm.addEventListener('submit', function(e){
     e.preventDefault();
 
@@ -695,23 +742,6 @@
       return;
     }
 
-    // Build calendar URL for later
-    const calData = {
-      name,
-      email,
-      phone,
-      city,
-      address: formData.get('address') || '',
-      package: pkg,
-      time,
-      date,
-      games: hiddenGames.value,
-      addons: hiddenAddons.value,
-      total: hiddenTotal.value
-    };
-    lastCalendarUrl = buildGoogleCalendarUrl(calData);
-
-    // Send to Formspree
     fetch(FORM_ACTION, {
       method:"POST",
       headers:{ "Accept":"application/json" },
@@ -731,18 +761,13 @@
       });
   });
 
-  calendarBtn.addEventListener('click', function(){
-    if(!lastCalendarUrl){
-      alert("Please submit the form first so we can build your calendar event.");
-      return;
-    }
-    window.open(lastCalendarUrl, "_blank");
-  });
-
   // init
   renderChoices();
   updateSummary();
 </script>
 </body>
 </html>
+
+
+  
 
