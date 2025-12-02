@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Playzone Party Rentals — Central PA Yard Games</title>
   <meta name="description" content="Playzone Party Rentals — Backyard & yard game rentals across Central PA. Based in Palmyra (17078). Phone: 717-376-7617" />
+
   <style>
     :root{
       --blue:#0b63d8;
       --blue-dark:#062445;
       --lime:#ffd94a;
       --accent-lime:#9be21d;
-      --magenta:#ff2b70;
       --dark:#071033;
       --muted:#6b7280;
       --card:#f7fbff;
@@ -25,22 +25,24 @@
       color:var(--dark);
       -webkit-font-smoothing:antialiased;
     }
-    a{color:inherit}
+
+    a{color:inherit;text-decoration:none}
+
     .container{max-width:1100px;margin:0 auto;padding:18px}
 
     /* HEADER */
     header.site-header{
       background:radial-gradient(circle at 0 0,#ff2b70 0,#0b63d8 38%,#071033 100%);
       color:#fff;
-      padding:18px 0 14px;
+      padding:18px 0;
       border-bottom:6px solid rgba(0,0,0,0.4);
     }
     .header-inner{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:14px;
       flex-wrap:wrap;
+      gap:14px;
     }
     .brand-wrap{
       display:flex;
@@ -50,18 +52,32 @@
     }
     .logo-img{
       width:210px;
-      max-width:40vw;
       height:auto;
-      display:block;
+      max-width:40vw;
       filter:drop-shadow(0 6px 18px rgba(0,0,0,0.45));
       border-radius:8px;
     }
-    .brand-text h1{margin:0;font-size:1.3rem;}
-    .brand-text .tag{font-size:.95rem;color:#e4ecff;}
+    .brand-text h1{
+      margin:0;
+      font-size:1.3rem;
+    }
+    .brand-text .tag{
+      font-size:.95rem;
+      color:#e4ecff;
+    }
 
-    nav{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
-    nav a{font-size:.92rem;color:#fff;text-decoration:none;}
-    a.btn-nav{
+    nav{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    nav a{
+      font-size:.92rem;
+      font-weight:600;
+      color:#fff;
+    }
+    .btn-nav{
       background:#ffd94a;
       color:#071033;
       padding:8px 14px;
@@ -74,58 +90,100 @@
       display:grid;
       grid-template-columns:1fr;
       gap:16px;
-      align-items:center;
       padding:22px 0;
+      align-items:center;
     }
-    .hero h2{margin:0;font-size:1.8rem;color:var(--blue-dark);}
-    .lead{margin-top:8px;color:var(--muted);}
-    .pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+    .hero h2{
+      margin:0;
+      font-size:1.9rem;
+      color:var(--blue-dark);
+    }
+    .lead{
+      color:var(--muted);
+      margin-top:8px;
+    }
+    .pills{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
     .pill{
       background:var(--card);
-      padding:7px 10px;
+      padding:7px 12px;
       border-radius:999px;
       font-size:.85rem;
       font-weight:700;
       color:var(--blue);
     }
-    .contact-line{margin-top:10px;font-size:.9rem;}
-    .link-blue{color:var(--blue);font-weight:700;text-decoration:none;}
+    .contact-line{
+      margin-top:10px;
+      font-size:.9rem;
+    }
+    .link-blue{
+      color:var(--blue);
+      font-weight:700;
+    }
 
+    /* CARDS */
     .card{
       background:#fff;
       border-radius:14px;
       padding:16px;
-      border:1px solid rgba(7,16,51,0.06);
+      border:1px solid rgba(0,0,0,0.08);
       box-shadow:0 8px 22px rgba(7,16,51,0.05);
     }
     .card + .card{margin-top:14px}
-    .section-title{margin:0 0 6px;font-size:1.25rem;}
-    .muted{color:var(--muted);font-size:.9rem;}
+    .section-title{
+      margin:0 0 6px;
+      font-size:1.25rem;
+    }
+    .muted{
+      color:var(--muted);
+      font-size:.9rem;
+    }
 
     /* PACKAGES */
-    .packages{display:grid;grid-template-columns:1fr;gap:10px;}
-    .pkg-name{font-weight:800;color:var(--blue)}
-    .pkg-price{font-weight:900;font-size:1.2rem;margin-top:4px}
-    .pkg-note{font-size:.9rem;color:var(--muted);margin-top:4px}
+    .packages{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+    }
+    .pkg-name{
+      font-weight:800;
+      color:var(--blue);
+    }
+    .pkg-price{
+      font-weight:900;
+      font-size:1.2rem;
+      margin-top:3px;
+    }
+    .pkg-note{
+      font-size:.9rem;
+      color:var(--muted);
+      margin-top:2px;
+    }
 
-    /* GAMES DISPLAY GRID */
+    /* GAMES DISPLAY */
     .games-grid{
       display:grid;
+      gap:12px;
       grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:10px 18px;
-      margin-top:8px;
+      margin-top:10px;
     }
     .game-item{
       display:flex;
-      align-items:center;
+      align-items:flex-start;
       gap:10px;
-      padding:8px 10px;
+      padding:10px 12px;
       border-radius:12px;
       background:linear-gradient(90deg,rgba(11,99,216,0.03),#fff);
     }
     .game-icon{
-      width:38px;height:38px;
-      min-width:38px;min-height:38px;
+      width:40px;
+      height:40px;
+      min-width:40px;
+      min-height:40px;
       border-radius:50%;
       display:flex;
       align-items:center;
@@ -134,21 +192,36 @@
       font-size:.9rem;
       flex-shrink:0;
     }
-    .game-icon.basic{background:#0b63d8;color:#fff;}
-    .game-icon.premium{background:var(--accent-lime);color:#02143a;}
-    .game-text{font-weight:700;font-size:.96rem;}
-    .game-sub{font-size:.85rem;color:var(--muted);margin-top:2px;}
+    .game-icon.basic{
+      background:#0b63d8;
+      color:#fff;
+    }
+    .game-icon.premium{
+      background:#9be21d;
+      color:#02143a;
+    }
+    .game-text{
+      font-weight:700;
+      font-size:.97rem;
+    }
+    .game-sub{
+      font-size:.82rem;
+      color:var(--muted);
+      margin-top:2px;
+    }
 
-    /* ADD-ONS GRID */
+    /* ADD-ONS DISPLAY */
     .addons-display-grid{
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:14px;margin-top:10px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:14px;
+      margin-top:10px;
     }
     .addon-item{
-      background:#ffffff;
+      background:#fff;
       padding:12px 14px;
       border-radius:12px;
-      border:1px solid rgba(0,0,0,0.06);
+      border:1px solid rgba(7,16,51,0.06);
       display:flex;
       justify-content:space-between;
       align-items:center;
@@ -160,17 +233,46 @@
 
     /* BOOKING */
     .booking-layout{
-      display:grid;grid-template-columns:1.1fr .9fr;gap:14px;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:14px;
     }
-    @media(max-width:900px){.booking-layout{grid-template-columns:1fr}}
+    @media(max-width:900px){
+      .booking-layout{grid-template-columns:1fr;}
+    }
 
-    .field{margin-bottom:8px;font-size:.9rem}
-    .field label{display:block;font-weight:700;margin-bottom:4px;}
-    .field input,.field select,.field textarea{
-      width:100%;padding:8px 10px;border-radius:10px;
-      border:1px solid rgba(7,16,51,0.12);font-size:.94rem;
+    .row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
     }
-    .field textarea{min-height:70px;resize:vertical;}
+    .row .field{
+      flex:1;
+      min-width:160px;
+    }
+
+    .field{
+      margin-bottom:8px;
+      font-size:.9rem;
+    }
+    .field label{
+      display:block;
+      font-weight:700;
+      margin-bottom:4px;
+    }
+    .field input,
+    .field select,
+    .field textarea{
+      width:100%;
+      padding:8px 10px;
+      border-radius:10px;
+      border:1px solid rgba(7,16,51,0.12);
+      font-size:.94rem;
+    }
+    .field textarea{
+      min-height:70px;
+      resize:vertical;
+    }
 
     .choices-grid{
       display:grid;
@@ -178,31 +280,67 @@
       gap:10px;
     }
     .choices-grid label{
-      display:flex;align-items:flex-start;gap:8px;
-      padding:10px;border-radius:9px;
+      display:flex;
+      align-items:flex-start;
+      gap:8px;
+      padding:10px;
+      border-radius:9px;
       border:1px solid rgba(7,16,51,0.06);
-      background:#fff;font-size:.9rem;flex-wrap:wrap;
+      background:#fff;
+      font-size:.9rem;
+      flex-wrap:wrap;
     }
 
     .summary-box{
-      padding:10px;border-radius:12px;
+      padding:10px;
+      border-radius:12px;
       background:linear-gradient(180deg,#ffffff,#f7fff3);
       border:1px solid rgba(7,16,51,0.06);
       font-size:.9rem;
     }
-    .summary-total{font-weight:900;font-size:1.1rem;color:var(--blue);margin-top:4px;}
+    .summary-total{
+      font-weight:900;
+      font-size:1.1rem;
+      color:var(--blue);
+      margin-top:4px;
+    }
 
-    .btn{border:0;border-radius:10px;padding:9px 14px;font-weight:800;cursor:pointer;font-size:.95rem;}
-    .btn-primary{background:var(--blue);color:#fff;}
-    .btn-secondary{background:#fff;color:var(--dark);border:1px solid rgba(7,16,51,0.12);}
+    .btn{
+      border:0;
+      border-radius:10px;
+      padding:9px 14px;
+      font-weight:800;
+      cursor:pointer;
+      font-size:.95rem;
+    }
+    .btn-primary{
+      background:var(--blue);
+      color:#fff;
+    }
+    .btn-secondary{
+      background:#fff;
+      color:var(--dark);
+      border:1px solid rgba(7,16,51,0.12);
+    }
 
-    #confirmation-box{display:none;margin-top:10px;}
+    #confirmation-box{
+      display:none;
+      margin-top:10px;
+    }
 
-    footer{text-align:center;margin-top:18px;padding:16px;color:var(--muted);font-size:.86rem;}
+    footer{
+      text-align:center;
+      margin-top:18px;
+      padding:16px;
+      color:var(--muted);
+      font-size:.86rem;
+    }
 
-    /* simple row helper for form */
-    .row{display:flex;gap:10px;flex-wrap:wrap;}
-    .row .field{flex:1;min-width:160px;}
+    @media(max-width:600px){
+      .container{padding:14px;}
+      .header-inner{flex-direction:column;align-items:flex-start;}
+      .logo-img{max-width:70vw;}
+    }
   </style>
 </head>
 
@@ -225,7 +363,6 @@
 </header>
 
 <main class="container">
-
   <!-- HERO -->
   <section class="hero">
     <div>
@@ -238,7 +375,8 @@
       </div>
       <p class="contact-line">
         Contact:
-        <a href="tel:7173767617" class="link-blue">717-376-7617</a> •
+        <a href="tel:7173767617" class="link-blue">717-376-7617</a>
+        •
         <a href="mailto:playzonepartyrentals@outlook.com" class="link-blue">playzonepartyrentals@outlook.com</a>
       </p>
     </div>
@@ -265,7 +403,9 @@
       <div>
         <div class="pkg-name">Party Mix</div>
         <div class="pkg-price">$95</div>
-        <div class="pkg-note">Pick <strong>5 games</strong>: up to <strong>3 basic</strong> + <strong>2 premium</strong>.</div>
+        <div class="pkg-note">
+          Pick <strong>5 games</strong>: up to <strong>3 basic</strong> + <strong>2 premium</strong>.
+        </div>
       </div>
 
       <div>
@@ -275,7 +415,9 @@
       </div>
     </div>
 
-    <p class="muted" style="margin-top:8px">Delivery &amp; pickup: <strong>$30</strong> within 15 miles of 17078.</p>
+    <p class="muted" style="margin-top:8px">
+      Delivery &amp; pickup: <strong>$30</strong> within 15 miles of 17078. Additional mileage may apply.
+    </p>
   </section>
 
   <!-- GAMES DISPLAY -->
@@ -297,24 +439,40 @@
 
     <h3 style="margin-top:20px">Premium games</h3>
     <div class="games-grid">
-      <div class="game-item"><div class="game-icon premium">BM</div><div class="game-text">Badminton</div></div>
-      <div class="game-item"><div class="game-icon premium">AT</div><div class="game-text">Kid-friendly Axe Throwing</div></div>
-      <div class="game-item"><div class="game-icon premium">VB</div><div class="game-text">Volleyball</div></div>
+      <div class="game-item">
+        <div class="game-icon premium">BM</div>
+        <div class="game-text">Badminton</div>
+      </div>
+      <div class="game-item">
+        <div class="game-icon premium">AT</div>
+        <div class="game-text">Kid-friendly Axe Throwing</div>
+      </div>
+      <div class="game-item">
+        <div class="game-icon premium">VB</div>
+        <div class="game-text">Volleyball</div>
+      </div>
       <div class="game-item">
         <div class="game-icon premium">NG</div>
         <div>
           <div class="game-text">Nerf Guns Kit</div>
-          <div class="game-sub">Includes 10 guns, 300 darts &amp; eye protection.</div>
+          <div class="game-sub">Includes 10 guns, 300 foam darts &amp; eye protection.</div>
         </div>
       </div>
-      <div class="game-item"><div class="game-icon premium">FT</div><div class="game-text">Giant Football Target Toss</div></div>
-      <div class="game-item"><div class="game-icon premium">LC</div><div class="game-text">LED Cornhole</div></div>
+      <div class="game-item">
+        <div class="game-icon premium">FT</div>
+        <div class="game-text">Giant Football Target Toss</div>
+      </div>
+      <div class="game-item">
+        <div class="game-icon premium">LC</div>
+        <div class="game-text">LED Cornhole</div>
+      </div>
     </div>
   </section>
 
-  <!-- ADD-ONS -->
+  <!-- ADD-ONS DISPLAY -->
   <section id="addons" class="card">
     <h2 class="section-title">Add-ons</h2>
+    <p class="muted">Level up your party with these extras:</p>
 
     <div class="addons-display-grid">
       <div class="addon-item"><span class="addon-name">Projector with outdoor screen</span><span class="addon-price">$50</span></div>
@@ -336,22 +494,41 @@
   <!-- BOOKING -->
   <section id="booking" class="card">
     <h2 class="section-title">Book / Request a Quote</h2>
+    <p class="muted">Fill out this form and we’ll confirm your date and availability.</p>
 
     <div class="booking-layout">
       <form id="bookingForm">
         <div class="row">
-          <div class="field"><label>Name *</label><input required name="name"></div>
-          <div class="field"><label>Email *</label><input required type="email" name="email"></div>
+          <div class="field">
+            <label>Name *</label>
+            <input required name="name">
+          </div>
+          <div class="field">
+            <label>Email *</label>
+            <input required type="email" name="email">
+          </div>
         </div>
 
         <div class="row">
-          <div class="field"><label>Phone *</label><input required type="tel" name="phone"></div>
-          <div class="field"><label>City *</label><input required name="city"></div>
+          <div class="field">
+            <label>Phone *</label>
+            <input required type="tel" name="phone">
+          </div>
+          <div class="field">
+            <label>City *</label>
+            <input required name="city">
+          </div>
         </div>
 
         <div class="row">
-          <div class="field"><label>Event date *</label><input required type="date" name="date"></div>
-          <div class="field"><label>Time range *</label><input required name="time" placeholder="e.g. 2pm – 6pm"></div>
+          <div class="field">
+            <label>Event date *</label>
+            <input required type="date" name="date">
+          </div>
+          <div class="field">
+            <label>Time range *</label>
+            <input required name="time" placeholder="e.g. 2pm – 6pm">
+          </div>
         </div>
 
         <div class="field">
@@ -367,10 +544,14 @@
         <div class="field">
           <label>Games you'd like</label>
 
-          <div style="font-weight:700;margin:8px 0 6px;font-size:0.95rem;color:#071033;">Basic games</div>
+          <div style="font-weight:700;margin:8px 0 6px;font-size:0.95rem;color:#071033;">
+            Basic games
+          </div>
           <div class="choices-grid" id="gamesChoicesBasic"></div>
 
-          <div style="font-weight:700;margin:14px 0 6px;font-size:0.95rem;color:#071033;">Premium games</div>
+          <div style="font-weight:700;margin:14px 0 6px;font-size:0.95rem;color:#071033;">
+            Premium games
+          </div>
           <div class="choices-grid" id="gamesChoicesPremium"></div>
 
           <div id="gamesLimitMsg" class="muted" style="margin-top:6px;"></div>
@@ -391,10 +572,10 @@
 
         <div class="field">
           <label>Notes</label>
-          <textarea name="notes"></textarea>
+          <textarea name="notes" placeholder="Anything we should know? (yard size, theme, etc.)"></textarea>
         </div>
 
-        <!-- hidden fields for Formspree -->
+        <!-- Hidden summary fields for Formspree -->
         <input type="hidden" name="games" id="hiddenGames">
         <input type="hidden" name="addons" id="hiddenAddons">
         <input type="hidden" name="estimated_total" id="hiddenTotal">
@@ -409,7 +590,7 @@
             <div class="summary-total">Estimated: $<span id="summaryTotal">0.00</span></div>
           </div>
 
-          <div style="align-self:flex-end;min-width:180px;">
+          <div style="align-self:flex-end;min-width:190px;">
             <button type="submit" class="btn btn-primary" style="width:100%;margin-bottom:8px;">Submit request</button>
             <button type="button" class="btn btn-secondary" style="width:100%;" onclick="scrollToTop()">Back to top</button>
           </div>
@@ -418,16 +599,15 @@
 
       <div id="confirmation-box" class="card">
         <h3>Thank you! 🎉</h3>
-        <p class="muted">We’ll contact you shortly to confirm your booking.</p>
+        <p class="muted">We’ll contact you shortly to confirm your booking and final details.</p>
       </div>
     </div>
   </section>
-
 </main>
 
 <footer>
-  © <span id="year"></span> Playzone Party Rentals • Palmyra, PA • 
-  <a href="tel:7173767617" class="link-blue">717-376-7617</a> • 
+  © <span id="year"></span> Playzone Party Rentals • Palmyra, PA •
+  <a href="tel:7173767617" class="link-blue">717-376-7617</a> •
   <a href="mailto:playzonepartyrentals@outlook.com" class="link-blue">playzonepartyrentals@outlook.com</a>
 </footer>
 
@@ -538,9 +718,15 @@ function getSelectedAddons(){
 }
 
 function getPackageLimits(pkg){
-  if(pkg==="Starter Fun")          return {maxTotal:3,maxBasic:3,maxPremium:0,text:"Starter Fun: up to 3 basic games."};
-  if(pkg==="Party Mix")            return {maxTotal:5,maxBasic:3,maxPremium:2,text:"Party Mix: up to 5 games (max 3 basic + 2 premium)."};
-  if(pkg==="Ultimate Block Party") return {maxTotal:10,maxBasic:10,maxPremium:10,text:"Ultimate: up to 10 games (any mix)."};
+  if(pkg==="Starter Fun"){
+    return {maxTotal:3,maxBasic:3,maxPremium:0,text:"Starter Fun: up to 3 basic games."};
+  }
+  if(pkg==="Party Mix"){
+    return {maxTotal:5,maxBasic:3,maxPremium:2,text:"Party Mix: up to 5 games (max 3 basic + 2 premium)."};
+  }
+  if(pkg==="Ultimate Block Party"){
+    return {maxTotal:10,maxBasic:10,maxPremium:10,text:"Ultimate: up to 10 games (any mix)."};
+  }
   return {maxTotal:Infinity,maxBasic:Infinity,maxPremium:Infinity,text:"Select a package to see limits."};
 }
 
@@ -556,8 +742,14 @@ function applyPackageLimits(pkg, selected){
     "#gamesChoicesBasic input[type=checkbox], #gamesChoicesPremium input[type=checkbox]"
   ).forEach(cb=>{
     const g=GAMES.find(x=>x.id===cb.value);
-    if(cb.checked){cb.disabled=false;return;}
-    if(!pkg){cb.disabled=false;return;}
+    if(cb.checked){
+      cb.disabled=false;
+      return;
+    }
+    if(!pkg){
+      cb.disabled=false;
+      return;
+    }
 
     const wouldBasic = basicCount + (g.type==="basic"?1:0);
     const wouldPrem  = premCount  + (g.type==="premium"?1:0);
@@ -571,21 +763,22 @@ function applyPackageLimits(pkg, selected){
 }
 
 function updateSummary(){
-  const pkg=document.getElementById("packageSelect").value;
-  const delivery=document.getElementById("delivery").value;
+  const pkg      = document.getElementById("packageSelect").value;
+  const delivery = document.getElementById("delivery").value;
 
-  const selectedGames = getSelectedGameObjects();
+  const selectedGames  = getSelectedGameObjects();
   const selectedAddons = getSelectedAddons();
-  const addonTotal = selectedAddons.reduce((s,a)=>s+a.price,0);
-  const base = pkg?PRICES[pkg]:0;
-  const deliveryFee = (delivery==="delivery"?30:0);
-  const total = base + addonTotal + deliveryFee;
 
-  document.getElementById("summaryPackage").textContent = pkg||"—";
-  document.getElementById("summaryGames").textContent   = selectedGames.length;
-  document.getElementById("summaryAddons").textContent  = selectedAddons.length;
-  document.getElementById("summaryDelivery").textContent= delivery==="delivery"?"Delivery (+$30)":"Pickup";
-  document.getElementById("summaryTotal").textContent   = total.toFixed(2);
+  const addonTotal  = selectedAddons.reduce((s,a)=>s+a.price,0);
+  const base        = pkg ? PRICES[pkg] : 0;
+  const deliveryFee = (delivery==="delivery" ? 30 : 0);
+  const total       = base + addonTotal + deliveryFee;
+
+  document.getElementById("summaryPackage").textContent  = pkg || "—";
+  document.getElementById("summaryGames").textContent    = selectedGames.length;
+  document.getElementById("summaryAddons").textContent   = selectedAddons.length;
+  document.getElementById("summaryDelivery").textContent = delivery==="delivery" ? "Delivery (+$30)" : "Pickup";
+  document.getElementById("summaryTotal").textContent    = total.toFixed(2);
 
   document.getElementById("hiddenGames").value  = selectedGames.map(g=>g.label).join(", ");
   document.getElementById("hiddenAddons").value = selectedAddons.map(a=>`${a.label} ($${a.price})`).join(", ");
@@ -602,7 +795,7 @@ document.getElementById("bookingForm").addEventListener("submit",function(e){
     return;
   }
 
-  const formData=new FormData(this);
+  const formData = new FormData(this);
 
   fetch(FORM_ACTION,{
     method:"POST",
@@ -617,8 +810,16 @@ document.getElementById("bookingForm").addEventListener("submit",function(e){
   });
 });
 
-function scrollToBooking(){document.getElementById("booking").scrollIntoView({behavior:"smooth"});}
-function scrollToTop(){window.scrollTo({top:0,behavior:"smooth"});}
+// Make sure package & delivery changes instantly update price
+document.getElementById("packageSelect").addEventListener("change", updateSummary);
+document.getElementById("delivery").addEventListener("change", updateSummary);
+
+function scrollToBooking(){
+  document.getElementById("booking").scrollIntoView({behavior:"smooth"});
+}
+function scrollToTop(){
+  window.scrollTo({top:0,behavior:"smooth"});
+}
 
 renderChoices();
 updateSummary();
